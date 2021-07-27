@@ -11,7 +11,7 @@ const wss = new WebSocket.Server({ noServer: true })
 const setupWSConnection = require('./utils.js').setupWSConnection
 
 const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 1234
+const port = process.env.PORT || 8080
 
 const server = https.createServer({
   key: fs.readFileSync(path.join(__dirname, 'cert', 'private_key.pem')),
