@@ -52,10 +52,11 @@
     ]
   },
   "dependencies": {
+    "express": "^4.17.1",
     "lib0": "^0.2.42",
     "lodash.debounce": "^4.0.8",
-    "y-protocols": "^1.0.5",
     "ws": "^6.2.1",
+    "y-protocols": "^1.0.5",
     "yjs": "^13.5.11"
   },
   "devDependencies": {

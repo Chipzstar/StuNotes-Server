@@ -11,7 +11,7 @@ const wss = new WebSocket.Server({ noServer: true })
 const setupWSConnection = require('./utils.js').setupWSConnection
 
 const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 8080
+const port = Number(process.env.PORT) || 1234
 
 const server = https.createServer({
   key: fs.readFileSync(path.join(__dirname, 'cert', 'private_key.pem')),
@@ -34,6 +34,4 @@ server.on('upgrade', (request, socket, head) => {
   wss.handleUpgrade(request, socket, head, handleAuth)
 })
 
-server.listen({ host, port })
-
-console.log(`running at '${host}' on port ${port}`)
+server.listen(port, host, () => console.log(`running at '${host}' on port ${port}`))
