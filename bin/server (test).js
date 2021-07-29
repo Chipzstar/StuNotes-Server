@@ -1,8 +1,9 @@
+/*
 #!/usr/bin/env node
 
-/**
+/!**
  * @type {any}
- */
+ *!/
 require('dotenv').config()
 const WebSocket = require('ws')
 const https = require('https')
@@ -34,9 +35,9 @@ wss.on('connection', setupWSConnection)
 
 serverTest.on('upgrade', (request, socket, head) => {
   // You may check auth of request here..
-  /**
+  /!**
    * @param {any} ws
-   */
+   *!/
   const handleAuth = ws => {
     wss.emit('connection', ws, request)
   }
@@ -46,3 +47,4 @@ serverTest.on('upgrade', (request, socket, head) => {
 serverTest.listen({ host, port })
 
 console.log(`running at '${host}' on port ${port}`)
+*/
