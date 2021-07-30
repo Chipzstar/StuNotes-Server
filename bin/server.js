@@ -3,6 +3,7 @@
 /**
  * @type {any}
  */
+require('newrelic')
 const WebSocket = require('ws')
 const http = require('http')
 const wss = new WebSocket.Server({ noServer: true })
