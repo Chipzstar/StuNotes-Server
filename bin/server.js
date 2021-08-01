@@ -30,6 +30,15 @@ server.on('upgrade', (request, socket, head) => {
   wss.handleUpgrade(request, socket, head, handleAuth)
 })
 
+server.on('request', (req, res) => {
+  const { method, url, headers } = req
+  console.log('METHOD', method)
+  console.log('URL', url)
+  console.log('HEADERS', headers)
+  res.statusCode = 200
+  res.end()
+})
+
 server.listen({ host, port })
 
 console.log(`running at '${host}' on port ${port}`)
