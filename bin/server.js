@@ -31,10 +31,7 @@ server.on('upgrade', (request, socket, head) => {
 })
 
 server.on('request', (req, res) => {
-  const { method, url, headers } = req
-  console.log('METHOD', method)
-  console.log('URL', url)
-  console.log('HEADERS', headers)
+  console.log('Pinging...')
   res.statusCode = 200
   res.end()
 })
