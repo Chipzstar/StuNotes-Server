@@ -11,7 +11,8 @@
     "url": "https://github.com/sponsors/dmonad"
   },
   "scripts": {
-    "start": "node bin/server.js",
+    "start": "./node_modules/.bin/netlify-lambda node bin/server.js",
+    "build": "./node_modules/.bin/netlify-lambda rm -rf dist && rollup -c && tsc",
     "dist": "rm -rf dist && rollup -c && tsc",
     "lint": "standard && tsc",
     "test": "npm run lint",
@@ -57,6 +58,7 @@
     "lib0": "^0.2.42",
     "lodash.debounce": "^4.0.8",
     "newrelic": "^8.0.0",
+    "serverless-http": "^3.0.2",
     "ws": "^6.2.1",
     "y-protocols": "^1.0.5",
     "yjs": "^13.5.11"

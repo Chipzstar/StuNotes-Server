@@ -7,6 +7,8 @@ require('newrelic')
 const WebSocket = require('ws')
 const http = require('http')
 const wss = new WebSocket.Server({ noServer: true })
+const serverless = require('serverless-http');
+const app = express();
 const setupWSConnection = require('./utils.js').setupWSConnection
 
 const host = process.env.HOST || 'localhost'
@@ -38,4 +40,9 @@ server.on('request', (req, res) => {
 
 server.listen({ host, port })
 
+
 console.log(`running at '${host}' on port ${port}`)
+
+app.use("./netlify/functions/server")
+
+module.exports.handler = serverless(app);
